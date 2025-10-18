@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vijayaragavan S | Portfolio</title>
+<style>
+/* ---------------- GLOBAL ---------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #f8fbff, #eaf3f9);
+  color: #222;
+  overflow-x: hidden;
+}
+
+/* ---------------- HEADER ---------------- */
+header {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 15px 50px;
+  z-index: 1000;
+  transition: 0.4s;
+}
+header.scrolled {
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+header h1 {
+  font-size: 1.6rem;
+  color: #0078d7;
+  font-weight: 600;
+}
+nav a {
+  color: #333;
+  text-decoration: none;
+  margin-left: 25px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+nav a:hover {
+  color: #0078d7;
+}
+
+/* ---------------- HERO ---------------- */
+.hero {
+  height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center;
+  background: linear-gradient(120deg, #e6f2ff, #f9fdff);
+  animation: fadeIn 1.5s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.profile-pic {
+  width: 250px; height: 300px;
+  border-radius: 20px;
+  border: 5px solid #0078d7;
+  box-shadow: 0 0 30px rgba(0,120,215,0.4);
+  object-fit: cover;
+  margin-bottom: 20px;
+  animation: pulse 4s infinite alternate;
+}
+@keyframes pulse {
+  from { box-shadow: 0 0 10px rgba(0,120,215,0.4); }
+  to { box-shadow: 0 0 40px rgba(0,120,215,0.7); }
+}
+.hero h2 {
+  font-size: 2.5rem;
+  color: #0078d7;
+}
+.hero p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  max-width: 600px;
+  line-height: 1.6;
+  color: #333;
+}
+.hero button {
+  margin-top: 25px;
+  padding: 12px 25px;
+  background: #0078d7;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+.hero button:hover {
+  transform: scale(1.1);
+  background: #005fa3;
+}
+
+/* ---------------- SECTIONS ---------------- */
+section { padding: 80px 10%; }
+h2.section-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #0078d7;
+  margin-bottom: 40px;
+  position: relative;
+}
+h2.section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: #0078d7;
+  margin: 10px auto;
+  border-radius: 5px;
+}
+
+/* ---------------- ABOUT ---------------- */
+.about p {
+  line-height: 1.8;
+  text-align: justify;
+  font-size: 1.05rem;
+  color: #333;
+  animation: slideUp 1s ease;
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------------- SKILLS ---------------- */
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+.skill {
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+.skill:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,120,215,0.2);
+}
+.skill h3 {
+  color: #0078d7;
+  margin-bottom: 10px;
+}
+
+/* ---------------- INTERNSHIP ---------------- */
+.internship {
+  background: #fff;
+  border-radius: 15px;
+  padding: 30px;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  animation: fadeUp 1.5s ease;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.internship h3 {
+  color: #0078d7;
+  margin-bottom: 10px;
+}
+.internship ul { margin-left: 20px; }
+
+/* ---------------- CERTIFICATIONS ---------------- */
+.certifications {
+  background: #fff;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  text-align: center;
+  animation: fadeUp 1.5s ease;
+}
+.certifications ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto 25px;
+}
+.certifications li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 1.05rem;
+  color: #333;
+}
+.certifications li:last-child {
+  border-bottom: none;
+}
+.certifications li strong {
+  color: #0078d7;
+}
+
+/* ---------------- RESUME BUTTON ---------------- */
+.resume-btn {
+  background: #0078d7;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 30px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.resume-btn:hover {
+  background: #005fa3;
+  transform: scale(1.05);
+}
+.resume-btn span {
+  font-size: 1.2rem;
+}
+
+/* ---------------- PROJECTS ---------------- */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+.project {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.4s, box-shadow 0.4s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+.project:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0,120,215,0.25);
+}
+.project h3 {
+  color: #0078d7;
+  margin-bottom: 8px;
+}
+
+/* ---------------- CONTACT ---------------- */
+.contact {
+  text-align: center;
+}
+.contact a {
+  color: #0078d7;
+  text-decoration: none;
+  margin: 10px;
+  display: inline-block;
+}
+footer {
+  background: #f0f4f8;
+  text-align: center;
+  padding: 20px;
+  color: #555;
+  margin-top: 50px;
+  border-top: 1px solid #ddd;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 768px) {
+  header { padding: 10px 25px; }
+  .hero h2 { font-size: 2rem; }
+  .profile-pic { width: 200px; height: 260px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Vijayaragavan S</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#internship">Internship</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <img src="vijay.png" alt="Profile Photo" class="profile-pic">
+  <h2>Hi, I'm Vijayaragavan Santhakumar</h2>
+  <p>Electrical & Electronics Engineer | Innovator | IoT</p>
+  <button onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+    Explore More
+  </button>
+</section>
+
+<section id="about" class="about">
+  <h2 class="section-title">About Me</h2>
+  <p>
+    I'm pursuing my B.E. in Electrical and Electronics Engineering at M. Kumarasamy College of Engineering (2026 batch).
+    Passionate about embedded systems, IoT, and AI/ML, I’ve worked on several real-time projects like
+    ultra-low power wearable sensors and AI-based safety systems for visually impaired railway passengers.
+  </p>
+</section>
+
+<section id="skills">
+  <h2 class="section-title">Skills</h2>
+  <div class="skills">
+    <div class="skill"><h3>Embedded Systems</h3><p>Hands-on experience with microcontrollers and sensors.</p></div>
+    <div class="skill"><h3>IoT</h3><p>Developed models for health monitoring and safety systems.</p></div>
+    <div class="skill"><h3>MATLAB & Simulink</h3><p>Simulation for power electronics & control systems.</p></div>
+    <div class="skill"><h3>AutoCAD</h3><p>Proficient in 2D drafting and 3D visualization.</p></div>
+    <div class="skill"><h3>Java & Python</h3><p>Certified in both languages for AI and data science use.</p></div>
+  </div>
+</section>
+
+<section id="internship">
+  <h2 class="section-title">Internship</h2>
+  <div class="internship">
+    <h3>Chettinad Cement Corporation Pvt. Ltd., Puliyur, Karur</h3>
+    <p><strong>Duration:</strong> 25 June 2025 – 9 July 2025</p>
+    <ul>
+      <li>Gained practical experience in transformer operations and motor control units.</li>
+      <li>Worked with industrial motors, drives, and control panels.</li>
+      <li>Enhanced understanding of electrical systems and maintenance procedures.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="certifications">
+  <h2 class="section-title">Certifications</h2>
+  <div class="certifications">
+    <ul>
+      <li><strong>Java Programming</strong> – Certified by Externs Club, 2025</li>
+      <li><strong>Python for Data Science, AI & Development</strong> – Certified by Coursera, 2025</li>
+      <li><strong>Embedded Systems</strong> – Certification of Completion, 2024</li>
+      <li><strong>AutoCAD & MATLAB</strong> – Skill development in design and simulation</li>
+    </ul>
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="section-title">Projects</h2>
+  <div class="projects">
+    <div class="project">
+      <h3>Ultra Low Power Wearable Sensor</h3>
+      <p>Designed a PPG-based wearable for real-time heart rate and SpO₂ monitoring using IoT integration.</p>
+    </div>
+    <div class="project">
+      <h3>AIML Cardiac Arrest Detection</h3>
+      <p>Developed a machine learning model to predict cardiac arrest risk using physiological data.</p>
+    </div>
+    <div class="project">
+      <h3>Thermal Management in EV</h3>
+      <p>Designed an integrated thermal system for batteries and motors in electric vehicles.</p>
+    </div>
+    <div class="project">
+      <h3>AI for Visually Impaired Railway Passengers</h3>
+      <p>AI-powered assistive navigation and safety system for visually impaired passengers.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2 class="section-title">Contact</h2>
+  <p>Email: <a href="mailto:gteesr25030@gmail.com">gteesr25030@gmail.com</a></p>
+  <p>Email: <a href="mailto:vijayjay54321@gmail.com">vijayjay54321@gmail.com</a></p>
+  <p>Phone: <a href="tel:+919787601258">+91 9787601258</a></p>
+  <p><a href="https://www.linkedin.com/in/vijayaragavan-santhakumar-b7b431253/" target="_blank">LinkedIn Profile</a></p>
+  <p><a href="https://github.com/Vijayvijayvj" target="_blank">GitHub Profile</a></p>
+  <a href="resume.pdf" download>
+    <button class="resume-btn">
+      <span>📄</span> Download Resume
+    </button>
+  </a>
+</section>
+
+<footer>
+  © 2025 Vijayaragavan S | Designed with 💡 Passion & Creativity
+</footer>
+
+<script>
+// Header scroll effect
+window.addEventListener("scroll", () => {
+  const header = document.querySelector("header");
+  header.classList.toggle("scrolled", window.scrollY > 50);
+});
+
+// Section fade-in animation
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = 1;
+      entry.target.style.transform = "translateY(0)";
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll("section").forEach(sec => {
+  sec.style.opacity = 0;
+  sec.style.transform = "translateY(40px)";
+  sec.style.transition = "all 1s ease-out";
+  observer.observe(sec);
+});
+</script>
+
+</body>
+</html>
